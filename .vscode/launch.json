@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run Example App",
+        "type": "dart",
+        "request": "launch",
+        "program": "${workspaceFolder}/example/lib/main.dart",
+        "cwd": "${workspaceFolder}/example",
+        "flutterMode": "debug",
+        "args": [
+          "--target",
+          "lib/main.dart"
+        ],
+        "preLaunchTask": "Get Dependencies"
+      },
+      {
+        "name": "Run Tests",
+        "type": "dart",
+        "request": "launch",
+        "program": "${workspaceFolder}/test/flutter_tailwind_test.dart",
+        "cwd": "${workspaceFolder}",
+        "flutterMode": "test",
+        "preLaunchTask": "Run Tests"
+      },
+      {
+        "name": "Run Example App (Web)",
+        "type": "dart",
+        "request": "launch",
+        "program": "${workspaceFolder}/example/lib/main.dart",
+        "cwd": "${workspaceFolder}/example",
+        "flutterMode": "debug",
+        "args": [
+          "-d",
+          "chrome"
+        ],
+        "preLaunchTask": "Get Dependencies"
+      }
+    ]
+  }

@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Analyze Package",
+        "type": "shell",
+        "command": "flutter",
+        "args": ["analyze"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$dart-analyze"],
+        "runOptions": {
+          "runOn": "folderOpen"
+        }
+      },
+      {
+        "label": "Format Code",
+        "type": "shell",
+        "command": "flutter",
+        "args": ["format", "."],
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Tests",
+        "type": "shell",
+        "command": "flutter",
+        "args": ["test"],
+        "group": {
+          "kind": "test",
+          "isDefault": true
+        },
+        "problemMatcher": ["$dart-test"]
+      },
+      {
+        "label": "Clean Project",
+        "type": "shell",
+        "command": "flutter",
+        "args": ["clean"],
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "Get Dependencies",
+        "type": "shell",
+        "command": "flutter",
+        "args": ["pub", "get"],
+        "group": "build",
+        "problemMatcher": [],
+        "dependsOn": "Clean Project"
+      }
+    ]
+  }
