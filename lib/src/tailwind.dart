@@ -107,7 +107,7 @@ extension TwUtils on Widget {
   Widget flex({String direction = 'row'}) {
     return Flex(
       direction: direction == 'row' ? Axis.horizontal : Axis.vertical,
-      children: this is Flex ? (this as Flex).children! : [this],
+      children: this is Flex ? (this as Flex).children : [this],
     );
   }
 
@@ -138,7 +138,7 @@ extension TwUtils on Widget {
     return Flex(
       direction: this is Flex ? (this as Flex).direction : Axis.horizontal,
       mainAxisAlignment: mainAxisAlignment,
-      children: this is Flex ? (this as Flex).children! : [this],
+      children: this is Flex ? (this as Flex).children : [this],
     );
   }
 
@@ -166,7 +166,7 @@ extension TwUtils on Widget {
     return Flex(
       direction: this is Flex ? (this as Flex).direction : Axis.horizontal,
       crossAxisAlignment: crossAxisAlignment,
-      children: this is Flex ? (this as Flex).children! : [this],
+      children: this is Flex ? (this as Flex).children : [this],
     );
   }
 
