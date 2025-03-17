@@ -3,7 +3,7 @@
 A Flutter package that brings Tailwind CSS-like utility classes to Flutter widgets, enabling rapid UI development with a familiar utility-first approach. This package provides a comprehensive set of utilities that can be chained together to create complex layouts and styles.
 
 
-![Flutter Tailwind v4](https://raw.githubusercontent.com/ikku47/flutter_tailwind_v4/flutter_tailwind_v4.jpeg)
+![Flutter Tailwind v4](https://raw.githubusercontent.com/ikku47/flutter_tailwind_v4/refs/heads/main/flutter_tailwind_v4.jpeg)
 
 
 ## Features
