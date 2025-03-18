@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// Abstract class for screen utilities configuration
-abstract class TwScreenUtils {
+/// Screen utilities for responsive design
+/// 
+/// This class provides utilities for responsive sizing based on screen dimensions
+/// using the flutter_screenutil package.
+class TwScreenUtils {
   /// Initialize screen utilities with design size
+  /// 
+  /// This should be called before using any screen utilities
   static void initialize(BuildContext context, double width, double height) {
     ScreenUtil.init(
       context,
@@ -45,4 +50,10 @@ abstract class TwScreenUtils {
 
   /// Scale factor for font size
   static double get scaleText => ScreenUtil().scaleText;
-} 
+
+  /// Check if the device is a tablet
+  static bool get isTablet => screenWidth >= 600;
+
+  /// Check if the device is a phone
+  static bool get isPhone => screenWidth < 600;
+}

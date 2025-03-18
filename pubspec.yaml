@@ -1,8 +1,6 @@
 name: flutter_tailwind_v4
 description: "A Flutter implementation of Tailwind CSS with screen utilities"
-publish_to: 'none'
-
-version: 1.0.0+1
+version: 1.0.1
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
