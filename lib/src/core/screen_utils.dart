@@ -31,10 +31,10 @@ class TwScreenUtils {
   static double r(num radius) => radius.r;
 
   /// Get screen width
-  static double get screenWidth => 1.sw;
+  static double get screenWidth => ScreenUtil().screenWidth;
 
   /// Get screen height
-  static double get screenHeight => 1.sh;
+  static double get screenHeight => ScreenUtil().screenHeight;
 
   /// Get status bar height
   static double get statusBarHeight => ScreenUtil().statusBarHeight;
@@ -52,8 +52,8 @@ class TwScreenUtils {
   static double get scaleText => ScreenUtil().scaleText;
 
   /// Check if the device is a tablet
-  static bool get isTablet => screenWidth >= 600;
+  static bool get isTablet => ScreenUtil().screenWidth >= 600;
 
   /// Check if the device is a phone
-  static bool get isPhone => screenWidth < 600;
+  static bool get isPhone => ScreenUtil().screenWidth < 600;
 }
