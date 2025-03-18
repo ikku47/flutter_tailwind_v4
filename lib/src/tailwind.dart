@@ -1,3 +1,10 @@
+library;
+
+export 'tailwind/core/screen_utils.dart';
+export 'tailwind/theme/tw_colors.dart';
+export 'tailwind/theme/tw_theme.dart';
+export 'tailwind/extensions/tw_widget_extension.dart';
+
 import 'package:flutter/material.dart';
 import 'config.dart';
 

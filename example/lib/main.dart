@@ -11,13 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.light, // Enforce light theme
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.blue, brightness: Brightness.light), // Explicitly set brightness to light
-        brightness: Brightness.light, // Ensure light brightness
-
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
       ),
       home: const ComponentListPage(),
     );
@@ -32,7 +31,7 @@ class ComponentListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tailwind Components')
-            .tw('textColor-slate-900'), // Removed dark theme styling from app bar title
+            .tw('text-xl font-bold textColor-slate-900'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -40,72 +39,34 @@ class ComponentListPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Buttons', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900 mb-4'), // Removed dark theme styling
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Primary'),
-                  ).tw('bg-blue-500 hover:bg-blue-700 textColor-white font-bold py-2 px-4 rounded'),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Secondary'),
-                  ).tw('bg-gray-500 hover:bg-gray-700 textColor-white font-bold py-2 px-4 rounded'),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: const Text('Outline'),
-                  ).tw('border-blue-500 hover:border-blue-700 textColor-blue-500 hover:textColor-blue-700 font-bold py-2 px-4 rounded'),
-                ],
-              ),
+              // Buttons Section
+              const SectionTitle(title: 'Buttons'),
+              const ButtonsSection(),
               const SizedBox(height: 24),
 
-              const Text('Text Fields', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900 mb-4'), // Removed dark theme styling
-              TextFormField().tw('border rounded py-2 px-3 textColor-slate-700 bg-white focus:outline-none focus:border-blue-500'), //Removed dark theme styling
+              // Text Fields Section  
+              const SectionTitle(title: 'Text Fields'),
+              const TextFieldsSection(),
               const SizedBox(height: 24),
 
-              const Text('Cards', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900 mb-4'), // Removed dark theme styling
-              const _ExampleCard(),
-
+              // Cards Section
+              const SectionTitle(title: 'Cards'),
+              const CardsSection(),
               const SizedBox(height: 24),
-              const Text('Typography', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900 mb-4'), // Removed dark theme styling
 
-              const Text('This is a heading', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900'), // Removed dark theme styling
-              const Text('This is a paragraph.', style: TextStyle(fontSize: 16))
-                  .tw('textColor-slate-700'), // Removed dark theme styling
-
+              // Typography Section
+              const SectionTitle(title: 'Typography'),
+              const TypographySection(),
               const SizedBox(height: 24),
-              const Text('Images', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900 mb-4'), // Removed dark theme styling
 
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  'https://images.unsplash.com/photo-1682685797765-5e589ba35719?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  height: 200,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ).tw('shadow-md'),
-
+              // Images Section
+              const SectionTitle(title: 'Images'),
+              const ImagesSection(),
               const SizedBox(height: 24),
-              const Text('Lists', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-                  .tw('textColor-slate-900 mb-4'), // Removed dark theme styling
-              ListView(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children:  [
-                  ListTile(leading: Icon(Icons.check), title: Text('Item 1')).tw('textColor-slate-900'), // Removed dark theme styling
-                  ListTile(leading: Icon(Icons.check), title: Text('Item 2')).tw('textColor-slate-900'), // Removed dark theme styling
-                  ListTile(leading: Icon(Icons.check), title: Text('Item 3')).tw('textColor-slate-900'), // Removed dark theme styling
-                ],
-              ).tw('divide-y divide-gray-200'), // Removed dark theme styling
+
+              // Lists Section
+              const SectionTitle(title: 'Lists'),
+              const ListsSection(),
             ],
           ),
         ),
@@ -114,35 +75,93 @@ class ComponentListPage extends StatelessWidget {
   }
 }
 
-class _ExampleCard extends StatelessWidget {
-  const _ExampleCard();
+class SectionTitle extends StatelessWidget {
+  final String title;
+  
+  const SectionTitle({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+        .tw('textColor-slate-900 mb-4');
+  }
+}
+
+class ButtonsSection extends StatelessWidget {
+  const ButtonsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Primary'),
+        ).tw('bg-blue-500 hover:bg-blue-700 textColor-white font-bold py-2 px-4 rounded'),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Secondary'),
+        ).tw('bg-gray-500 hover:bg-gray-700 textColor-white font-bold py-2 px-4 rounded'),
+        OutlinedButton(
+          onPressed: () {},
+          child: const Text('Outline'),
+        ).tw('border-blue-500 hover:border-blue-700 textColor-blue-500 hover:textColor-blue-700 font-bold py-2 px-4 rounded'),
+      ],
+    );
+  }
+}
+
+class TextFieldsSection extends StatelessWidget {
+  const TextFieldsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField()
+        .tw('border rounded py-2 px-3 textColor-slate-700 bg-white focus:outline-none focus:border-blue-500');
+  }
+}
+
+class CardsSection extends StatelessWidget {
+  const CardsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withAlpha(20),
+            spreadRadius: 1,
+            blurRadius: 5,
+          ),
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Card Image Placeholder
           Container(
             height: 150,
             width: double.infinity,
-            color: Colors.grey[300],
-            child: const Center(
-              child: Icon(Icons.image, size: 48),
+            decoration: const BoxDecoration(
+              color: Color(0xFFE5E7EB),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
             ),
-          ).tw('rounded-t-lg'),
-
+            child: const Icon(Icons.image, size: 48, color: Colors.grey),
+          ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Card Title", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
-                    .tw('textColor-slate-900'), // Removed dark theme styling
+                const Text("Card Title")
+                    .tw('text-lg font-bold textColor-slate-900'),
                 const SizedBox(height: 8),
-                const Text("Some quick example text to build on the card title and make up the bulk of the card's content.", style: TextStyle(fontSize: 14))
-                    .tw('textColor-slate-700'), // Removed dark theme styling
+                const Text("Some quick example text to build on the card title and make up the bulk of the card's content.")
+                    .tw('textColor-slate-700'),
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {},
@@ -153,6 +172,66 @@ class _ExampleCard extends StatelessWidget {
           ),
         ],
       ),
-    ).tw('bg-white rounded-lg shadow-md'); // Removed dark theme styling
+    ).tw('bg-white rounded-lg shadow-md');
+  }
+}
+
+class TypographySection extends StatelessWidget {
+  const TypographySection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('This is a heading')
+            .tw('text-3xl font-bold textColor-slate-900'),
+        const Text('This is a paragraph.')
+            .tw('text-base textColor-slate-700'),
+      ],
+    );
+  }
+}
+
+class ImagesSection extends StatelessWidget {
+  const ImagesSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.network(
+        'https://picsum.photos/200/300',
+        height: 200,
+        width: double.infinity,
+        fit: BoxFit.cover,
+      ),
+    ).tw('shadow-md rounded-lg');
+  }
+}
+
+class ListsSection extends StatelessWidget {
+  const ListsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      children:  [
+        ListTile(
+          leading: Icon(Icons.check, color: Colors.blue),
+          title: Text('Item 1'),
+        ).tw('textColor-slate-900'),
+        ListTile(
+          leading: Icon(Icons.check, color: Colors.blue),
+          title: Text('Item 2'),
+        ).tw('textColor-slate-900'),
+        ListTile(
+          leading: Icon(Icons.check, color: Colors.blue),
+          title: Text('Item 3'),
+        ).tw('textColor-slate-900'),
+      ],
+    ).tw('divide-y divide-gray-200');
   }
 }

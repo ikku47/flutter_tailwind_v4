@@ -1,31 +1,30 @@
 name: flutter_tailwind_v4
-description: "A Flutter package that brings Tailwind CSS-like utility classes to Flutter widgets, enabling rapid UI development with a familiar utility-first approach."
-version: 0.0.2
-homepage: https://github.com/ikku47/flutter_tailwind_v4
-repository: https://github.com/ikku47/flutter_tailwind_v4
-issue_tracker: https://github.com/ikku47/flutter_tailwind_v4/issues
+description: "A Flutter implementation of Tailwind CSS with screen utilities"
+publish_to: 'none'
+
+version: 1.0.0+1
 
 environment:
-  sdk: ^3.6.1
-  flutter: ">=1.17.0"
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
-  flutter_oss_licenses: ^2.0.1
+  flutter_lints: ^2.0.0
 
+flutter:
+  uses-material-design: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
-
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
