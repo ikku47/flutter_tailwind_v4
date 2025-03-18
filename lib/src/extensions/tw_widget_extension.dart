@@ -245,8 +245,7 @@ extension TwWidgetExtension on Widget {
   }) => LayoutBuilder(
         builder: (context, constraints) {
           final width = constraints.maxWidth;
-          final breakpoints = TwConstants.breakpoints;
-          
+          const breakpoints = TwConstants.breakpoints;
           if (width >= breakpoints['2xl']! && xl2 != null) {
             return SizedBox(width: double.parse(xl2), child: this);
           } else if (width >= breakpoints['xl']! && xl != null) {

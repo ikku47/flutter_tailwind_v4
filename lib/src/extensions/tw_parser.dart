@@ -217,7 +217,7 @@ extension TwParser on Widget {
 
   Widget _applyFlex(Widget widget, String utility) {
     final parts = utility.split('-');
-    if (parts.length < 1) return widget;
+    if (parts.isEmpty) return widget;
 
     // Handle flex utilities
     if (parts[0] == 'flex') {

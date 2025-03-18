@@ -19,7 +19,7 @@ void main() {
     );
     expect(containerFinder, findsOneWidget);
     final containerWidget = tester.widget<Container>(containerFinder);
-    expect(containerWidget.color, TwConfig.colors['light']!['blue']![500]);
+    expect(containerWidget.color, TwColors.getColor('blue', 500));
 
     // Then find the Padding inside the Container
     final paddingFinder = find.descendant(

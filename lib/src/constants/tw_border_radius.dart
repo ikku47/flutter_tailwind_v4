@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_tailwind_v4/src/core/screen_utils.dart';
 
 /// Border radius values based on Tailwind CSS

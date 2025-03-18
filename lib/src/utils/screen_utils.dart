@@ -15,7 +15,7 @@ class TwScreenUtils {
     _screenHeight = mediaQuery.size.height;
     _designWidth = designWidth;
     _designHeight = designHeight;
-    _scaleFactor = mediaQuery.textScaleFactor;
+    _scaleFactor = _screenWidth / _designWidth;
   }
 
   /// Get the current screen width
